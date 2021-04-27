@@ -20,3 +20,10 @@ def extrai_naipe(string):
         return string[1]
     else:
         return string[2]
+
+#Extrai valor da carta
+def extrai_valor(string):
+    if len(string)==2:
+        return string[0]
+    else:
+        return string[0]+string[1]
