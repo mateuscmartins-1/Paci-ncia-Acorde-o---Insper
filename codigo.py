@@ -28,16 +28,6 @@ def extrai_valor(string):
     else:
         return string[0]+string[1]
 #Lista movimentos possíveis no Paciência Acordeão
-def extrai_naipe(string):
-    if len(string)==2:
-        return string[1]
-    else:
-        return string[2]
-def extrai_valor(string):
-    if len(string)==2:
-        return string[0]
-    else:
-        return string[0]+string[1]
 def lista_movimentos_possiveis(baralho,indice):
     movimentos_possiveis=[]
     if indice>=1:
