@@ -1,3 +1,4 @@
+#Função para criar baralho
 def cria_baralho():
     naipes = ["♠", "♥", "♦", "♣"]
     valor_carta = ["2","3","4","5","6","7","8","9","10","J","Q", "K", "A"]
@@ -12,3 +13,10 @@ def cria_baralho():
             j += 1
             i = 0
     return baralho
+
+#Extrai naipe da carta
+def extrai_naipe(string):
+    if len(string)==2:
+        return string[1]
+    else:
+        return string[2]
