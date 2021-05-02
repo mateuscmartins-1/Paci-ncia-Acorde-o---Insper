@@ -58,3 +58,14 @@ def empilha(baralho, origem, destino):
         del baralho[destino + 1]
         del baralho[origem]
     return baralho
+
+#Há movimentos possiveis no Paciência Acordeão?
+def possui_movimentos_possiveis(baralho):
+    lista_movimento = [[1], [3], [1,3]]
+    i = 0
+    while i < len(baralho):
+        if lista_movimentos_possiveis(baralho,i) in lista_movimento:
+            return True
+        else:
+            i += 1
+    return False
