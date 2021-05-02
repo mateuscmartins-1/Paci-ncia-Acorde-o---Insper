@@ -31,9 +31,9 @@ def extrai_valor(string):
 #Lista movimentos possíveis no Paciência Acordeão
 def lista_movimentos_possiveis(baralho,indice):
     movimentos_possiveis=[]
-    if indice == 0: #Caso a posição do índice for 0
+    if indice == 0: #Caso a posição do índice seja 0
         return movimentos_possiveis
-    if indice>=1: #Caso a posição do índice for menor 3 e maior que 1
+    if indice>=1: #Para qualquer posição maior ou acima de 1
         if extrai_naipe(baralho[indice])==extrai_naipe(baralho[indice-1]):
             movimentos_possiveis.append(1)
         elif extrai_valor(baralho[indice])==extrai_valor(baralho[indice-1]):
