@@ -119,18 +119,39 @@ while continuar:
         if indice_carta == 1:
             if lista_movimentos_possiveis(baralho,indice_carta) == [1]:
                 empilha(baralho, indice_carta, indice_carta-1)
+                i2 = 1
+                for carta in baralho:
+                    print("{}. {}".format(i2, carta))
+                    i2 += 1
         if indice_carta == 2:
             if lista_movimentos_possiveis(baralho,indice_carta) == [1]:
                 empilha(baralho, indice_carta, indice_carta-1)
+                i3 = 1
+                for carta in baralho:
+                    print("{}. {}".format(i3, carta))
+                    i3 += 1
         else:
-            a = input("Não há movimentos disponíveis para essa carta! Escolha uma outra carta do baralho acima(1 a {}).".format(quantidade_cartas))
+            a = input("Não há movimentos disponíveis para {}! Escolha uma outra carta do baralho acima(1 a {}).".format(carta, quantidade_cartas))
+            a = carta
+            i8 = 1
+            for carta in baralho:                
+                print("{}. {}".format(i8, carta))
+                i8 += 1
         quantidade_cartas -= 1
 
     if possui_movimentos_possiveis(baralho) == True and indice_carta >=3:  
         if lista_movimentos_possiveis(baralho,indice_carta) == [1]:
             empilha(baralho, indice_carta, indice_carta-1)
+            i4 = 1
+            for carta in baralho:
+                print("{}. {}".format(i4, carta))
+                i4 += 1
         elif lista_movimentos_possiveis(baralho,indice_carta) == [3]:
             empilha(baralho, indice_carta, indice_carta-3)
+            i5 = 1
+            for carta in baralho:
+                print("{}. {}".format(i5, carta))
+                i5 += 1
         elif lista_movimentos_possiveis(baralho,indice_carta) == [1,3]:
             print("1. Empilhar a carta {} em cima a carta {} (Mover uma posição)".format(carta, baralho[escolha_carta - 2]))
             print("2. Empilhar a carta {} em cima a carta {} (Mover 3 posições)".format(carta, baralho[escolha_carta - 4]))
@@ -140,13 +161,26 @@ while continuar:
                 if movimenta_carta == 1:
                     empilha(baralho, indice_carta, indice_carta-1)
                     avancar=False
+                    i6 = 1
+                    for carta in baralho:
+                        print("{}. {}".format(i6, carta))
+                        i6 += 1
                 if movimenta_carta == 2:
                     empilha(baralho, indice_carta, indice_carta-3)
                     avancar=False
+                    i7 = 1
+                    for carta in baralho:
+                        print("{}. {}".format(i7, carta))
+                        i7 += 1
                 else:
                     print("Digite 1 ou 2")
         else:
-            a = input("Não há movimentos disponíveis para essa carta! Escolha uma outra carta do baralho acima(1 a {}).".format(quantidade_cartas))
+            a = input("Não há movimentos disponíveis para {}! Escolha uma outra carta do baralho acima(1 a {}).".format(carta, quantidade_cartas))
+            a = carta
+            i9 = 1
+            for carta in baralho:
+                print("{}. {}".format(i9, carta))
+                i9 += 1
         quantidade_cartas -= 1
 
     elif possui_movimentos_possiveis(baralho) == False:
