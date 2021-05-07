@@ -102,18 +102,19 @@ while iniciar:
         print("Digite iniciar!")
 
 #Quantidade de cartas
-qntd_cartas = 52
+quantidade_cartas = 52
 continuar = True
 while continuar:
-    
-    escolha_carta = int(input("Escolha uma carta do baralho acima(2 a {})".format(qntd_cartas)))
+    escolha_carta = int(input("Escolha uma carta do baralho acima(2 a {})".format(quantidade_cartas)))
+    if escolha_carta>quantidade_cartas or escolha_carta< 2:
+        print("Esta posição é inválida.")
+        continue
 
     carta = baralho[escolha_carta - 1]
 
     indice_carta = escolha_carta - 1
+    
 
-    if  indice_carta==0:
-        print("A primeira carta não pode ser movida. Escolha uma carta do baralho acima(2 a {})".format(qntd_cartas))
     if possui_movimentos_possiveis(baralho) == True and (indice_carta == 1 or indice_carta == 2):
         if indice_carta == 1:
             if lista_movimentos_possiveis(baralho,indice_carta) == [1]:
@@ -122,10 +123,10 @@ while continuar:
             if lista_movimentos_possiveis(baralho,indice_carta) == [1]:
                 empilha(baralho, indice_carta, indice_carta-1)
         else:
-            a = input("Não há movimentos disponíveis para essa carta! Escolha uma outra carta do baralho acima(1 a {}).".format*qntd_cartas)
-        qntd_cartas -= 1
+            a = input("Não há movimentos disponíveis para essa carta! Escolha uma outra carta do baralho acima(1 a {}).".format(quantidade_cartas))
+        quantidade_cartas -= 1
 
-    if possui_movimentos_possiveis(baralho) == True and indice_carta >= 3:  
+    if possui_movimentos_possiveis(baralho) == True and indice_carta >=3:  
         if lista_movimentos_possiveis(baralho,indice_carta) == [1]:
             empilha(baralho, indice_carta, indice_carta-1)
         elif lista_movimentos_possiveis(baralho,indice_carta) == [3]:
@@ -145,8 +146,8 @@ while continuar:
                 else:
                     print("Digite 1 ou 2")
         else:
-            a = input("Não há movimentos disponíveis para essa carta! Escolha uma outra carta do baralho acima(1 a {}).".format*qntd_cartas)
-        qntd_cartas -= 1
+            a = input("Não há movimentos disponíveis para essa carta! Escolha uma outra carta do baralho acima(1 a {}).".format(quantidade_cartas))
+        quantidade_cartas -= 1
 
     elif possui_movimentos_possiveis(baralho) == False:
         print("Você perdeu! Para jogar, novamente, reinicie o jogo!")
