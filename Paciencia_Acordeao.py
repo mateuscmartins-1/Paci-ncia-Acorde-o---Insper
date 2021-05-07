@@ -103,18 +103,37 @@ continuar = True
 while continuar:
     escolha_carta = int(input("Escolha uma carta do baralho acima(1 a {})".format(qntd_cartas)))
     carta = baralho[escolha_carta - 1]
-    indice_carta = escolha_carta
-    if possui_movimentos_possiveis(baralho) == True :
-        lista_de_2_cartas = [baralho[escolha_carta], carta]
+    indice_carta = escolha_carta 
+    if possui_movimentos_possiveis(baralho) == True and (indice_carta == 1 or indice_carta == 2):
+        lista_de_2_cartas = [baralho[escolha_carta - 2], carta]
+        lista_de_3_cartas = [baralho[escolha_carta - 3], baralho[escolha_carta - 2], carta]
+        if indice_carta == 1:
+            if lista_movimentos_possiveis(lista_de_2_cartas,1) == [1]:
+                lista_de_2_cartas[1] = carta3
+                empilha(carta3, 1, 0)
+        if indice_carta == 2:
+            if lista_movimentos_possiveis(lista_de_3_cartas,2) == [1]:
+                lista_de_3_cartas[2] = carta4
+                empilha(carta4, 2, 1)
+
+
+    if possui_movimentos_possiveis(baralho) == True and indice_carta >= 3:  
         lista_de_4_cartas = [ baralho[escolha_carta - 4],baralho[escolha_carta - 3],baralho[escolha_carta - 2], carta]
-        if lista_movimentos_possiveis(lista_de_2_cartas,1) == [1]:
-
-            empilha(carta,indice_carta,indice_carta - 1)
+        lista_de_4_cartas[3] = carta2
+        if lista_movimentos_possiveis(lista_de_4_cartas,3) == [1]:
+            empilha(carta2, 3, 2)
         elif lista_movimentos_possiveis(lista_de_4_cartas,3) == [3]:
-            empilha(carta,indice_carta,indice_carta-3)
+            empilha(carta2, 3, 0)
         elif lista_movimentos_possiveis(lista_de_4_cartas,3) == [1,3]:
-            input("Você pode movimentar essa carta de duas formas! Como quer movimentar? ")
-
+            print("1. Empilhar a carta {} em cima a carta {} (Mover uma posição)".format(carta2, lista_de_4_cartas[2]))
+            print("1. Empilhar a carta {} em cima a carta {} (Mover 3 posições)".format(carta2, lista_de_4_cartas[0]))
+            movimenta_carta = int(input("Você pode movimentar essa carta de duas formas! Como quer movimentar? (1 ou 2) "))
+            if movimenta_carta == 1:
+                empilha(carta2, 3, 2)
+            if movimenta_carta == 2:
+                empilha(carta2, 3, 0)
+            else:
+                print("ARRUMAR COM WHILE")
 
 
         qntd_cartas -= 1
