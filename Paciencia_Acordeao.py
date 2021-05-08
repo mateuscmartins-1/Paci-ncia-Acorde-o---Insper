@@ -137,7 +137,7 @@ while jogar:
                             carta=baralho[i2]
                             print("{}.   {}".format(i2+1, carta))
                             i2 += 1
-                        if len(baralho)==9:
+                        if len(baralho)<=9:
                             break
                         carta=baralho[i2]
                         print("{}.  {}".format(i2+1, carta))
@@ -155,7 +155,7 @@ while jogar:
                             carta=baralho[i3]
                             print("{}.   {}".format(i3+1, carta))
                             i3 += 1
-                        if len(baralho)==9:
+                        if len(baralho)<=9:
                             break
                         carta=baralho[i3]
                         print("{}.  {}".format(i3+1, carta))
@@ -173,7 +173,7 @@ while jogar:
                         carta=baralho[i4]
                         print("{}.   {}".format(i4+1, carta))
                         i4 += 1
-                    if len(baralho)==9:
+                    if len(baralho)<=9:
                         break
                     carta=baralho[i4]
                     print("{}.  {}".format(i4+1, carta))
@@ -188,7 +188,7 @@ while jogar:
                         carta=baralho[i5]
                         print("{}.   {}".format(i5+1, carta))
                         i5 += 1
-                    if len(baralho)==9:
+                    if len(baralho)<=9:
                         break
                     carta=baralho[i5]
                     print("{}.  {}".format(i5+1, carta))
@@ -206,7 +206,7 @@ while jogar:
                         avancar=False
                         i6 = 0
                         while i6<len(baralho):
-                            while i6<=8:
+                            while i6<=9:
                                 carta=baralho[i6]
                                 print("{}.   {}".format(i6+1, carta))
                                 i6 += 1
@@ -224,7 +224,7 @@ while jogar:
                                 carta=baralho[i7]
                                 print("{}.   {}".format(i7+1, carta))
                                 i7 += 1
-                            if len(baralho)==9:
+                            if len(baralho)<=9:
                                 break
                             carta=baralho[i7]
                             print("{}.  {}".format(i7+1, carta))
