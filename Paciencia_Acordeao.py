@@ -1,5 +1,6 @@
 import random
-
+from colorama import Fore, Back, Style
+  
 #Função para criar baralho
 def cria_baralho():
     naipes = ["♠", "♥", "♦", "♣"]
@@ -90,6 +91,9 @@ print("1. As duas cartas possuem o mesmo naipe;")
 print("2. As duas cartas possuem o mesmo valor.")
 print("")
 
+naipes_vermelho = ["♥", "♦"]
+naipes_preto = ["♠", "♣"]
+
 jogar=99>1
 while jogar:
     iniciar=True
@@ -101,10 +105,16 @@ while jogar:
             while i1<len(baralho):
                 while i1<=8:
                     carta=baralho[i1]
-                    print("{}.   {}".format(i1+1, carta))
+                    if ("♥" in carta or "♦" in carta):
+                        print(Fore.BLACK + "{}.   {}".format(i1+1, carta))
+                    elif ("♠" in carta or "♣" in carta):
+                        print(Fore.RED + "{}.   {}".format(i1+1, carta))
                     i1 += 1
                 carta=baralho[i1]
-                print("{}.  {}".format(i1+1, carta))
+                if ("♥" in carta or "♦" in carta):
+                    print(Fore.RED + "{}.  {}".format(i1+1, carta))
+                elif ("♠" in carta or "♣" in carta):
+                    print(Fore.BLACK + "{}.  {}".format(i1+1, carta))
                 i1 += 1
             iniciar=False
         else:
@@ -118,7 +128,7 @@ while jogar:
         if quantidade_cartas == 1:
             print("O jogo acabou e você venceu! Parabéns!!! :)")
         
-        escolha_carta = int((input("Escolha uma carta do baralho acima(2 a {}): ".format(quantidade_cartas))))
+        escolha_carta = int((input(Fore.WHITE + "Escolha uma carta do baralho acima(2 a {}): ".format(quantidade_cartas))))
         if escolha_carta> quantidade_cartas or escolha_carta< 2:
             print("Essa posição é inválida! ")
             continue
@@ -135,12 +145,18 @@ while jogar:
                     while i2<len(baralho):
                         while i2<=8:
                             carta=baralho[i2]
-                            print("{}.   {}".format(i2+1, carta))
+                            if ("♥" in carta or "♦" in carta):
+                                print(Fore.RED + "{}.   {}".format(i2+1, carta))
+                            elif ("♠" in carta or "♣" in carta):
+                                print(Fore.BLACK + "{}.   {}".format(i2+1, carta)) 
                             i2 += 1
                         if len(baralho)<=9:
                             break
                         carta=baralho[i2]
-                        print("{}.  {}".format(i2+1, carta))
+                        if ("♥" in carta or "♦" in carta):
+                            print(Fore.RED + "{}.  {}".format(i2+1, carta))
+                        elif ("♠" in carta or "♣" in carta):
+                            print(Fore.BLACK + "{}.  {}".format(i2+1, carta))
                         i2 += 1
                     quantidade_cartas -= 1
                 else:
@@ -153,12 +169,18 @@ while jogar:
                     while i3<len(baralho):
                         while i3<=8:
                             carta=baralho[i3]
-                            print("{}.   {}".format(i3+1, carta))
+                            if ("♥" in carta or "♦" in carta):
+                                print(Fore.RED + "{}.   {}".format(i3+1, carta))
+                            elif ("♠" in carta or "♣" in carta):
+                                print(Fore.BLACK + "{}.   {}".format(i3+1, carta)) 
                             i3 += 1
                         if len(baralho)<=9:
                             break
                         carta=baralho[i3]
-                        print("{}.  {}".format(i3+1, carta))
+                        if ("♥" in carta or "♦" in carta):
+                            print(Fore.RED + "{}.  {}".format(i3+1, carta))
+                        elif ("♠" in carta or "♣" in carta):
+                            print(Fore.BLACK + "{}.  {}".format(i3+1, carta)) 
                         i3 += 1
                     quantidade_cartas -= 1
                 else:
@@ -171,12 +193,18 @@ while jogar:
                 while i4<len(baralho):
                     while i4<=8:
                         carta=baralho[i4]
-                        print("{}.   {}".format(i4+1, carta))
+                        if ("♥" in carta or "♦" in carta):
+                            print(Fore.RED + "{}.   {}".format(i4+1, carta))
+                        elif ("♠" in carta or "♣" in carta):
+                            print(Fore.BLACK + "{}.   {}".format(i4+1, carta)) 
                         i4 += 1
                     if len(baralho)<=9:
                         break
                     carta=baralho[i4]
-                    print("{}.  {}".format(i4+1, carta))
+                    if ("♥" in carta or "♦" in carta):
+                        print(Fore.RED + "{}.  {}".format(i4+1, carta))
+                    elif ("♠" in carta or "♣" in carta):
+                        print(Fore.BLACK + "{}.  {}".format(i4+1, carta)) 
                     i4 += 1
                 quantidade_cartas -= 1
 
@@ -186,12 +214,18 @@ while jogar:
                 while i5<len(baralho):
                     while i5<=8:
                         carta=baralho[i5]
-                        print("{}.   {}".format(i5+1, carta))
+                        if ("♥" in carta or "♦" in carta):
+                            print(Fore.RED + "{}.   {}".format(i5+1, carta))
+                        elif ("♠" in carta or "♣" in carta):
+                            print(Fore.BLACK + "{}.   {}".format(i5+1, carta)) 
                         i5 += 1
                     if len(baralho)<=9:
                         break
                     carta=baralho[i5]
-                    print("{}.  {}".format(i5+1, carta))
+                    if ("♥" in carta or "♦" in carta):
+                        print(Fore.RED + "{}.  {}".format(i5+1, carta))
+                    elif ("♠" in carta or "♣" in carta):
+                        print(Fore.BLACK + "{}.  {}".format(i5+1, carta)) 
                     i5 += 1
                 quantidade_cartas -= 1
 
@@ -208,12 +242,18 @@ while jogar:
                         while i6<len(baralho):
                             while i6<=9:
                                 carta=baralho[i6]
-                                print("{}.   {}".format(i6+1, carta))
+                                if ("♥" in carta or "♦" in carta):
+                                    print(Fore.RED + "{}.   {}".format(i6+1, carta))
+                                elif ("♠" in carta or "♣" in carta):
+                                    print(Fore.BLACK + "{}.   {}".format(i6+1, carta)) 
                                 i6 += 1
                             if len(baralho)==9:
                                 break
                             carta=baralho[i6]
-                            print("{}.  {}".format(i6+1, carta))
+                            if ("♥" in carta or "♦" in carta):
+                                print(Fore.RED + "{}.  {}".format(i6+1, carta))
+                            elif ("♠" in carta or "♣" in carta):
+                                print(Fore.BLACK + "{}.  {}".format(i6+1, carta)) 
                             i6 += 1
                     if movimenta_carta == 2:
                         empilha(baralho, indice_carta, indice_carta-3)
@@ -222,12 +262,18 @@ while jogar:
                         while i7<len(baralho):
                             while i7<=9:
                                 carta=baralho[i7]
-                                print("{}.   {}".format(i7+1, carta))
+                                if ("♥" in carta or "♦" in carta):
+                                    print(Fore.RED + "{}.   {}".format(i7+1, carta))
+                                elif ("♠" in carta or "♣" in carta):
+                                    print(Fore.BLACK + "{}.   {}".format(i7+1, carta))                                
                                 i7 += 1
                             if len(baralho)<=9:
                                 break
                             carta=baralho[i7]
-                            print("{}.  {}".format(i7+1, carta))
+                            if ("♥" in carta or "♦" in carta):
+                                print(Fore.RED + "{}.  {}".format(i7+1, carta))
+                            elif ("♠" in carta or "♣" in carta):
+                                print(Fore.BLACK + "{}.  {}".format(i7+1, carta))                             
                             i7 += 1
                     else:
                         print("Digite 1 ou 2")
@@ -237,7 +283,7 @@ while jogar:
                 print("Essa carta não possui movimento. Tente outra carta ")
         
         elif possui_movimentos_possiveis(baralho) == False:
-            print("O jogo acabou e você perdeu... que pena. :(")
+            print("Fim de jogo! Você perdeu!")
             continuar = False
     print("")
 
