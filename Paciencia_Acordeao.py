@@ -17,13 +17,14 @@ def cria_baralho():
             i = 0
     return baralho
 
-baralho = cria_baralho()
+
 #Função para extrair o naipe da carta
 def extrai_naipe(carta):
     if len(carta)==2: #Para todas as cartas com exceção das cartas com o número 10
         return carta[1]
     if len(carta) == 3: #Para todas as cartas com o número 10
         return carta[2]
+
 
 #Função para extrair o valor da carta
 def extrai_valor(carta):
@@ -32,6 +33,7 @@ def extrai_valor(carta):
     if len(carta) == 3: #Para todas as cartas com o número 10
         return carta[0]+carta[1]
     
+
 #Função para saber a lista de movimentos possíveis no Paciência Acordeão
 def lista_movimentos_possiveis(cartas,indice):
     movimentos_possiveis=[]
@@ -49,6 +51,7 @@ def lista_movimentos_possiveis(cartas,indice):
             movimentos_possiveis.append(3)
     return movimentos_possiveis
 
+
 #Função para empilhar as cartas no Paciência Acordeão
 def empilha(cartas, origem, destino):
     if lista_movimentos_possiveis(cartas,origem) == [1]: #Empilhar as cartas caso a lista da função lista_movimentos_possiveis seja [1]
@@ -63,6 +66,7 @@ def empilha(cartas, origem, destino):
         del cartas[origem]
     return cartas
 
+
 #Função para saber se há movimentos possiveis no Paciência Acordeão
 def possui_movimentos_possiveis(baralho):
     lista_movimento = [[1], [3], [1,3]]
@@ -75,7 +79,7 @@ def possui_movimentos_possiveis(baralho):
 
 
 #Junção das funções para jogar o Paciência Acordeão
-
+print("")
 print("======== Paciência Acordeão ========")
 print("")
 print("Bem vindo(a) ao Paciência Acordeão. Para ganhar é preciso empilhar todas as cartas em uma mesma pilha!")
@@ -96,9 +100,11 @@ naipes_preto = ["♠", "♣"]
 
 jogar=99>1
 while jogar:
+    baralho = cria_baralho()
     iniciar=True
     while iniciar:
-        inicio = input("Para iniciar o jogo digite INICIAR: ")
+        print("")
+        inicio = input("Para começar o jogo digite  INICIAR: ")
         if (inicio == "INICIAR" or inicio == "Iniciar" or inicio == "iniciar"):
             random.shuffle(baralho)
             i1 = 0
@@ -128,7 +134,12 @@ while jogar:
         if quantidade_cartas == 1:
             print("O jogo acabou e você venceu! Parabéns!!! :)")
         
-        escolha_carta = int((input(Fore.WHITE + "Escolha uma carta do baralho acima(2 a {}): ".format(quantidade_cartas))))
+        elif possui_movimentos_possiveis(baralho) == False:
+            print("Fim de jogo! Você perdeu!")
+            continuar = False
+
+        escolha_carta = int((input(Fore.WHITE + "Escolha uma carta do baralho acima (2 a {}): ".format(quantidade_cartas))))
+
         if escolha_carta> quantidade_cartas or escolha_carta< 2:
             print("Essa posição é inválida! ")
             continue
@@ -143,7 +154,7 @@ while jogar:
                     empilha(baralho, indice_carta, indice_carta-1)
                     i2 = 0
                     while i2<len(baralho):
-                        while i2<=8:
+                        while i2<=8 and i2< len(baralho):
                             carta=baralho[i2]
                             if ("♥" in carta or "♦" in carta):
                                 print(Fore.RED + "{}.   {}".format(i2+1, carta))
@@ -160,14 +171,14 @@ while jogar:
                         i2 += 1
                     quantidade_cartas -= 1
                 else:
-                    print("Essa carta não possui movimento. Tente outra carta ")
+                    print("A carta {} não possui movimento. Tente outra carta ".format(carta))
 
             if indice_carta == 2:
                 if lista_movimentos_possiveis(baralho,indice_carta) == [1]:
                     empilha(baralho, indice_carta, indice_carta-1)
                     i3 = 0
                     while i3<len(baralho):
-                        while i3<=8:
+                        while i3<=8 and i3< len(baralho):
                             carta=baralho[i3]
                             if ("♥" in carta or "♦" in carta):
                                 print(Fore.RED + "{}.   {}".format(i3+1, carta))
@@ -184,14 +195,14 @@ while jogar:
                         i3 += 1
                     quantidade_cartas -= 1
                 else:
-                    print("Essa carta não possui movimento. Tente outra carta ")
+                    print("A carta {} não possui movimento. Tente outra carta ".format(carta))
 
         elif possui_movimentos_possiveis(baralho) == True and indice_carta >=3:  
             if lista_movimentos_possiveis(baralho,indice_carta) == [1]:
                 empilha(baralho, indice_carta, indice_carta-1)
                 i4 = 0
                 while i4<len(baralho):
-                    while i4<=8:
+                    while i4<=8 and i4< len(baralho):
                         carta=baralho[i4]
                         if ("♥" in carta or "♦" in carta):
                             print(Fore.RED + "{}.   {}".format(i4+1, carta))
@@ -212,7 +223,7 @@ while jogar:
                 empilha(baralho, indice_carta, indice_carta-3)
                 i5 = 0
                 while i5<len(baralho):
-                    while i5<=8:
+                    while i5<=8 and i5< len(baralho):
                         carta=baralho[i5]
                         if ("♥" in carta or "♦" in carta):
                             print(Fore.RED + "{}.   {}".format(i5+1, carta))
@@ -230,17 +241,19 @@ while jogar:
                 quantidade_cartas -= 1
 
             elif lista_movimentos_possiveis(baralho,indice_carta) == [1,3]:
+                print("Você pode movimentar essa carta de duas formas! ")
+                print("")
                 print("1. Empilhar a carta {} em cima a carta {} (Mover uma posição)".format(carta, baralho[escolha_carta - 2]))
                 print("2. Empilhar a carta {} em cima a carta {} (Mover 3 posições)".format(carta, baralho[escolha_carta - 4]))
                 avancar=True
                 while avancar:
-                    movimenta_carta = int(input("Você pode movimentar essa carta de duas formas! Como quer movimentar? (1 ou 2): "))
+                    movimenta_carta = int(input("Como você quer movimentar? Igual a maneira de número 1 ou de número 2? "))
                     if movimenta_carta == 1:
                         empilha(baralho, indice_carta, indice_carta-1)
                         avancar=False
                         i6 = 0
                         while i6<len(baralho):
-                            while i6<=9:
+                            while i6<=8 and i6< len(baralho):
                                 carta=baralho[i6]
                                 if ("♥" in carta or "♦" in carta):
                                     print(Fore.RED + "{}.   {}".format(i6+1, carta))
@@ -260,7 +273,7 @@ while jogar:
                         avancar=False
                         i7 = 0
                         while i7<len(baralho):
-                            while i7<=9:
+                            while i7<=8 and i7< len(baralho):
                                 carta=baralho[i7]
                                 if ("♥" in carta or "♦" in carta):
                                     print(Fore.RED + "{}.   {}".format(i7+1, carta))
@@ -280,16 +293,12 @@ while jogar:
                 quantidade_cartas -= 1
 
             else:
-                print("Essa carta não possui movimento. Tente outra carta ")
-        
-        elif possui_movimentos_possiveis(baralho) == False:
-            print("Fim de jogo! Você perdeu!")
-            continuar = False
+                print("A carta {} não possui movimento. Tente outra carta ".format(carta))
     print("")
 
     novamente=77<89
     while novamente==True:
-        jogar_novamente=input("Você deseja jogar novamente? Responda ===> sim, para iniciar um novo jogo. OU . Responda ===> não, para parar de jogar!")
+        jogar_novamente=input("Você deseja jogar novamente? Responda ===> sim, para iniciar um novo jogo. OU . Responda ===> não, para parar de jogar! ")
         if jogar_novamente=='sim':
             break
         if jogar_novamente=='não':
