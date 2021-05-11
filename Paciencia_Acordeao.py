@@ -244,8 +244,30 @@ while jogar:
             elif lista_movimentos_possiveis(baralho,indice_carta) == [1,3]:
                 print("Você pode movimentar essa carta de duas formas! ")
                 print("")
-                print("1. Empilhar a carta {} em cima da carta {} (Mover uma posição)".format(carta, baralho[escolha_carta - 2]))
-                print("2. Empilhar a carta {} em cima da carta {} (Mover 3 posições)".format(carta, baralho[escolha_carta - 4]))
+                if ("♥" in carta or "♦" in carta) and ("♥" in baralho[escolha_carta-2] or "♦" in baralho[escolha_carta-2]) and ("♥" in baralho[escolha_carta-4] or "♦" in baralho[escolha_carta-4]) :
+                    print("1. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover uma posição)".format(Fore.RED, carta, Fore.RESET, Fore.RED, baralho[escolha_carta - 2], Fore.RESET))
+                    print("2. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover 3 posições)".format(Fore.RED, carta, Fore.RESET, Fore.RED, baralho[escolha_carta - 4], Fore.RESET))
+                elif ("♠" in carta or "♣" in carta) and("♠" in baralho[escolha_carta-2] or "♣" in baralho[escolha_carta-2]) and ("♠" in baralho[escolha_carta-4] or "♣" in baralho[escolha_carta-4]) :
+                    print("1. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover uma posição)".format(Fore.BLACK, carta, Fore.RESET, Fore.BLACK, baralho[escolha_carta - 2], Fore.RESET))
+                    print("2. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover 3 posições)".format(Fore.BLACK, carta, Fore.RESET, Fore.BLACK, baralho[escolha_carta - 4], Fore.RESET))
+                elif ("♥" in carta or "♦" in carta) and ("♥" in baralho[escolha_carta-2] or "♦" in baralho[escolha_carta-2]) and ("♠" in baralho[escolha_carta-4] or "♣" in baralho[escolha_carta-4]):
+                    print("1. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover uma posição)".format(Fore.RED, carta, Fore.RESET, Fore.RED, baralho[escolha_carta - 2], Fore.RESET))
+                    print("2. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover 3 posições)".format(Fore.RED, carta, Fore.RESET, Fore.BLACK, baralho[escolha_carta - 4], Fore.RESET))
+                elif ("♥" in carta or "♦" in carta) and ("♥" in baralho[escolha_carta-4] or "♦" in baralho[escolha_carta-4]) and ("♠" in baralho[escolha_carta-2] or "♣" in baralho[escolha_carta-2]):
+                    print("1. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover uma posição)".format(Fore.RED, carta, Fore.RESET, Fore.BLACK, baralho[escolha_carta - 2], Fore.RESET))
+                    print("2. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover 3 posições)".format(Fore.RED, carta, Fore.RESET, Fore.RED, baralho[escolha_carta - 4], Fore.RESET))
+                elif ("♥" in carta or "♦" in carta) and ("♠" in baralho[escolha_carta-2] or "♣" in baralho[escolha_carta-2]) and ("♠" in baralho[escolha_carta-4] or "♣" in baralho[escolha_carta-4]):
+                    print("1. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover uma posição)".format(Fore.RED, carta, Fore.RESET, Fore.BLACK, baralho[escolha_carta - 2], Fore.RESET))
+                    print("2. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover 3 posições)".format(Fore.RED, carta, Fore.RESET, Fore.BLACK, baralho[escolha_carta - 4], Fore.RESET))               
+                elif ("♠" in carta or "♣" in carta) and ("♥" in baralho[escolha_carta-2] or "♦" in baralho[escolha_carta-2]) and ("♥" in baralho[escolha_carta-4] or "♦" in baralho[escolha_carta-4]) :
+                    print("1. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover uma posição)".format(Fore.BLACK, carta, Fore.RESET, Fore.RED, baralho[escolha_carta - 2], Fore.RESET))
+                    print("2. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover 3 posições)".format(Fore.BLACK, carta, Fore.RESET, Fore.RED, baralho[escolha_carta - 4], Fore.RESET))                
+                elif ("♠" in carta or "♣" in carta) and ("♥" in baralho[escolha_carta-2] or "♦" in baralho[escolha_carta-2]) and ("♠" in baralho[escolha_carta-4] or "♣" in baralho[escolha_carta-4]) :
+                    print("1. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover uma posição)".format(Fore.BLACK, carta, Fore.RESET, Fore.RED, baralho[escolha_carta - 2], Fore.RESET))
+                    print("2. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover 3 posições)".format(Fore.BLACK, carta, Fore.RESET, Fore.BLACK, baralho[escolha_carta - 4], Fore.RESET))    
+                elif ("♠" in carta or "♣" in carta) and ("♠" in baralho[escolha_carta-2] or "♣" in baralho[escolha_carta-2]) and ("♥" in baralho[escolha_carta-4] or "♦" in baralho[escolha_carta-4]) :
+                    print("1. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover uma posição)".format(Fore.BLACK, carta, Fore.RESET, Fore.BLACK, baralho[escolha_carta - 2], Fore.RESET))
+                    print("2. Empilhar a carta {}{}{} em cima da carta {}{}{} (Mover 3 posições)".format(Fore.BLACK, carta, Fore.RESET, Fore.RED, baralho[escolha_carta - 4], Fore.RESET))  
                 avancar=True
                 while avancar:
                     movimenta_carta = int(input("Como você quer movimentar? Igual a maneira de número 1 ou de número 2? "))
@@ -294,7 +316,11 @@ while jogar:
                 quantidade_cartas -= 1
 
             else:
-                print("A carta {} não possui movimento. Tente outra carta ".format(carta))
+                if ("♥" in carta or "♦" in carta): 
+                    print("A carta {}{}{} não possui movimento. Tente outra carta ".format(Fore.RED,carta, Fore.RESET))
+                elif ("♠" in carta or "♣" in carta):
+                    print("A carta {}{}{} não possui movimento. Tente outra carta ".format(Fore.BLACK,carta, Fore.RESET))
+    
     print("")
 
     novamente=True
