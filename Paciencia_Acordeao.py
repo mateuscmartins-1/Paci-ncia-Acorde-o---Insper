@@ -1,3 +1,4 @@
+#Importamos as bibliotecas para embaralhar o baralho e utilizar cores para os naipes
 import random
 from colorama import Fore, Back, Style
   
@@ -98,7 +99,7 @@ print("")
 naipes_vermelho = ["♥", "♦"]
 naipes_preto = ["♠", "♣"]
 
-jogar=99>1
+jogar=True
 while jogar:
     baralho = cria_baralho()
     iniciar=True
@@ -124,7 +125,7 @@ while jogar:
                 i1 += 1
             iniciar=False
         else:
-            print("Digite iniciar para começar o jogo!")
+            print("Digite iniciar para começar o jogo!!!")
 
     quantidade_cartas = 52
     continuar = True
@@ -243,8 +244,8 @@ while jogar:
             elif lista_movimentos_possiveis(baralho,indice_carta) == [1,3]:
                 print("Você pode movimentar essa carta de duas formas! ")
                 print("")
-                print("1. Empilhar a carta {} em cima a carta {} (Mover uma posição)".format(carta, baralho[escolha_carta - 2]))
-                print("2. Empilhar a carta {} em cima a carta {} (Mover 3 posições)".format(carta, baralho[escolha_carta - 4]))
+                print("1. Empilhar a carta {} em cima da carta {} (Mover uma posição)".format(carta, baralho[escolha_carta - 2]))
+                print("2. Empilhar a carta {} em cima da carta {} (Mover 3 posições)".format(carta, baralho[escolha_carta - 4]))
                 avancar=True
                 while avancar:
                     movimenta_carta = int(input("Como você quer movimentar? Igual a maneira de número 1 ou de número 2? "))
@@ -296,7 +297,7 @@ while jogar:
                 print("A carta {} não possui movimento. Tente outra carta ".format(carta))
     print("")
 
-    novamente=77<89
+    novamente=True
     while novamente==True:
         jogar_novamente=input("Você deseja jogar novamente? Responda ===> sim, para iniciar um novo jogo. OU . Responda ===> não, para parar de jogar! ")
         if jogar_novamente=='sim':
